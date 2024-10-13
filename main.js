@@ -61,12 +61,16 @@ function setting_local_storage_Value_On_Screen() {
 setting_local_storage_Value_On_Screen()
 
 function Checking_Date_To_press_Enter() { 
-    let getting_exect_date_to_Cmpre_Click_date_OBJECT =  new Date()
-    let getting_exect_date_to_Cmpre_Click_date = getting_exect_date_to_Cmpre_Click_date_OBJECT.getUTCDate() 
-    
-    if (ClickTimerFun() + 1 == getting_exect_date_to_Cmpre_Click_date) {
+
+    let today = new Date()
+    let ClickedDay = ClickTimerFun()
+
+    let clickedDate = new Date(today.getFullYear(), today.getMonth(), ClickedDay)
+    clickedDate.setDate(clickedDate.getDate() + 1)
+    if (today.toDateString() === clickedDate.toDateString()) {
         AddingElement()
-    } 
+    }
+
 }
 Checking_Date_To_press_Enter()
 
